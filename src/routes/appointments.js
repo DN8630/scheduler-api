@@ -31,7 +31,6 @@ module.exports = (db, updateAppointment) => {
       setTimeout(() => response.status(500).json({}), 1000);
       return;
     }
-
     const { student, interviewer } = request.body.interview;
 
     db.query(
@@ -56,7 +55,6 @@ module.exports = (db, updateAppointment) => {
       setTimeout(() => response.status(500).json({}), 1000);
       return;
     }
-
     db.query(`DELETE FROM interviews WHERE appointment_id = $1::integer`, [
       request.params.id
     ]).then(() => {
